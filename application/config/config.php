@@ -20,9 +20,9 @@ $config['base_url']	= "http://localhost/poligon_hesabi/";
 |--------------------------------------------------------------------------
 |
 */
-$config['appID']	= "1568484637";
-$config['consumerKey']	= "tvLZhduiuSzlfu7RMo5MRbky3PmytKiL";
-$config['consumerSecret']	= "5UAcXUlhDKuI3sqGGlimmuLg8YFryO2t";
+$config['appID']	= "";
+$config['consumerKey']	= "";
+$config['consumerSecret']	= "";
 
 /*
 |--------------------------------------------------------------------------
