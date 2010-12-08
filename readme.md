@@ -12,18 +12,19 @@ Kullanimi
 
 1) poligon_hesabi.sql dosyasini veritabani sunucunuzda(MySQL, PostgreSQL gibi) yeni bir veritabani olusturarak yukleyin.
 
-2) [application/config/config.php][configphp] dosyasindeki;
+2) [application/config/config.php][configphp] dosyasinda;
 	
 	$config['appID']
 	$config['consumerKey']
 	$config['consumerSecret']
 
-parametreleri Geomatik Uygulamalar uzerinde olusturdugunuz uygulamaniza ait degerler ile degistirin.
+degerleri Geomatik Uygulamalar [Gelistirici Hesabi][developer] içinde olusturdugunuz uygulamaniza ait degerler ile degistirin.
 
 3) [application/config/database.php][databasephp] dosyasindeki veritabani parametrelerini kendi veritabani sunucunuza ait parametreler ile degistirin.
 
 [configphp]: http://github.com/mtrcn/Poligon-Hesabi/blob/master/application/config/config.php
 [databasephp]: http://github.com/mtrcn/Poligon-Hesabi/blob/master/application/config/database.php
+[developer]: http://www.geomatikuygulamalar.com/v2/developer
 
 Dokumantasyon
 --------
