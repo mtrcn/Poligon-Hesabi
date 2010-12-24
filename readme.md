@@ -2,25 +2,29 @@ Geomatik Uygulamalar Poligon Hesabi Modül Uygulamasi
 ================
 
 Bu depo Poligon Hesabi uygulamasinin acik kaynak kodlarini icermektedir. 
-Aksi belirtilmedikce "application" klasoru altindaki tum kodlar Apache Licence, Version 2.0 lisansi ile sunulmaktadir.
+Aksi belirtilmedikce [application] klasoru altindaki tum kodlar Apache Licence, Version 2.0 lisansi ile sunulmaktadir.
 (http://www.apache.org/licenses/LICENSE-2.0.html)
 
+[application]: https://github.com/mtrcn/Poligon-Hesabi/tree/master/application
 
 Kullanimi
-----------
+-------
 
-1) poligon_hesabi.sql dosyasini mySQL sunucunuzda yeni bir veritabani olusturarak yukleyin.
+1) poligon_hesabi.sql dosyasini veritabani sunucunuzda(MySQL, PostgreSQL gibi) yeni bir veritabani olusturarak yukleyin.
 
-2) application/config/config.php dosyasindeki;
+2) [application/config/config.php][configphp] dosyasinda;
 	
 	$config['appID']
 	$config['consumerKey']
 	$config['consumerSecret']
 
-parametreleri kendi uygulamanizinki ile degistirin.
+degerleri Geomatik Uygulamalar [Gelistirici Hesabi][developer] içinde olusturdugunuz uygulamaniza ait degerler ile degistirin.
 
-3) application/config/database.php dosyasindeki veritabani parametrelerini kendi veritabani sunucunuza ait parametreler ile degistirin.
+3) [application/config/database.php][databasephp] dosyasindeki veritabani parametrelerini kendi veritabani sunucunuza ait parametreler ile degistirin.
 
+[configphp]: http://github.com/mtrcn/Poligon-Hesabi/blob/master/application/config/config.php
+[databasephp]: http://github.com/mtrcn/Poligon-Hesabi/blob/master/application/config/database.php
+[developer]: http://www.geomatikuygulamalar.com/v2/developer
 
 Dokumantasyon
 --------
