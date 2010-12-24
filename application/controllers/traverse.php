@@ -62,9 +62,11 @@ class Traverse extends Controller {
 					break;
 				case "ring":
 					$data=$this->TraverseModel->ringTraverse($data);
+					$data['regulation'] = $this->_prepareRegulation($data);
 					break;
 				case "closed":
 					$data=$this->TraverseModel->closedTraverse($data);
+					$data['regulation'] = $this->_prepareRegulation($data);
 					break;
 			}
 		}else //Eğer gerekli parametreler yoksa hata mesajı oluşturulur
@@ -73,7 +75,6 @@ class Traverse extends Controller {
 		}
 
 		$data['title']=$this->title_tr[$data['traverseType']].' Poligon Hesabı';
-		$data['regulation'] = $this->_prepareRegulation($data);
 		$this->load->view('header');
 		$this->load->view('traverse/table_header',$data);
 		$this->load->view('traverse/'.$data['traverseType'].'_traverse_table',$data);
@@ -172,7 +173,7 @@ class Traverse extends Controller {
 	* @param Array $data hesap kontrolleri için gerekli parametreler (gerekli)
 	* @return String
 	*/
-	function _prepareRegulation($data, $fb, $maxFb, $fq, $maxFq, $fl, $maxFl, $S, $type='ring', $fx=0, $fy=0){
+	function _prepareRegulation($data){
 		$regulation  = '<fieldset><legend><b>Hesap Kontrolü</b></legend>';
 		$regulation .= '<table cellspacing="10" width="100%"><tr><td valign="top" width="40%" class="regulation">';
 		if ($data['traverseType']=='ring')
