@@ -18,7 +18,7 @@ class Gupa
   /**
    * Version.
    */
-  const VERSION = '1.0.0';
+  const VERSION = '1.1.0';
 
   /**
    * Default options for curl.
@@ -28,7 +28,7 @@ class Gupa
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_TIMEOUT        => 60,
     CURLOPT_POST           => 1,
-    CURLOPT_USERAGENT      => 'gupa-php-1.0',
+    CURLOPT_USERAGENT      => 'gupa-php-1.1',
   );
 
    /**
@@ -50,7 +50,10 @@ class Gupa
   	'/basic_calc/azmt_dist/',
   	'/traverse/free/',
   	'/traverse/ring/',
-  	'/traverse/closed/'
+  	'/traverse/closed/',
+  	'/reduction/reduce/',
+  	'/reduction/geometric/',
+  	'/reduction/meteorological/'
   );
 
   /**
