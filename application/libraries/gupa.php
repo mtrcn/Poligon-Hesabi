@@ -18,7 +18,7 @@ class Gupa
   /**
    * Version.
    */
-  const VERSION = '1.0.0';
+  const VERSION = '1.1.0';
 
   /**
    * Default options for curl.
@@ -28,7 +28,7 @@ class Gupa
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_TIMEOUT        => 60,
     CURLOPT_POST           => 1,
-    CURLOPT_USERAGENT      => 'gupa-php-1.0',
+    CURLOPT_USERAGENT      => 'gupa-php-1.1',
   );
 
    /**
@@ -42,15 +42,16 @@ class Gupa
    */
   protected static $SERVICE_MAP =array(
   	'/oauth/access_token/',
-  	'/oauth/request_token/',
-    '/license/get_token',
-    '/license/get_license',
-    '/user/get_info/',
+    '/license/',
+    '/user/getinfo/',
     '/basic_calc/coord/',
   	'/basic_calc/azmt_dist/',
   	'/traverse/free/',
   	'/traverse/ring/',
-  	'/traverse/closed/'
+  	'/traverse/closed/',
+  	'/reduction/reduce/',
+  	'/reduction/geometric/',
+  	'/reduction/meteorological/'
   );
 
   /**
