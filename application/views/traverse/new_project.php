@@ -6,32 +6,20 @@
         form.submit();
   }
 </script>
-<h1>Yeni Proje</h1>
-<form method="post" action="<? echo site_url("traverse/table"); ?>">
-<table width="100%">
-	<tr>
-		<td width="120px">Poligon Türü</td>
-		<td>: <input name="traverse_type" type="radio" value="free"
-			checked="checked" /> Açık <input name="traverse_type" type="radio"
-			value="ring" /> Kapalı <input name="traverse_type" type="radio"
-			value="closed" /> Bağlı</td>
-	</tr>
-	<tr>
-		<td>Nokta Sayısı</td>
-		<td>: <input type="text" size="5" style="text-align: center;"
-			name="num_points"></td>
-	</tr>
-	<tr>
-		<td colspan="2" align="center">
-			<input style="width: 200px; text-align: center;" type="button"
-	onclick="javascript:check_form(this.form)" value="Devam >>" />
-		</td>
-	</tr>
-</table>
+<h2>Yeni Proje</h2>
+<form class="well" method="post" action="<? echo site_url("traverse/table"); ?>">
+<fieldset>
+	<label for="traverse_type">Poligon Türü:
+		<input name="traverse_type" type="radio" value="free" checked="checked" /> Açık 
+		<input name="traverse_type" type="radio" value="ring" /> Kapalı 
+		<input name="traverse_type" type="radio" value="closed" /> Bağlı
+	</label>
+	<label for="num_points">Nokta Sayısı:
+		<input type="text" name="num_points">
+	</label>
+	<input class="btn btn-large" type="button" onclick="javascript:check_form(this.form)" value="Devam >>" />
+</fieldset>
 </form>
-<div id="help">
-	<div class="helpItem">
-		<p>Yeni bir proje oluşturmak için <b>Poligon Türü</b> ve <b>Nokta Sayısı</b> kısımlarını doldurun.</p>
-	</div>
-</div>
+<div class="alert alert-info">
+	Yeni bir proje oluşturmak için <b>Poligon Türü</b> ve <b>Nokta Sayısı</b> kısımlarını doldurun.
 </div>

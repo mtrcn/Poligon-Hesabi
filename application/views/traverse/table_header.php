@@ -4,18 +4,20 @@
     that.value = that.value.replace(/,/g,".");
   }
 </script>
-<h1><?php echo $title; ?></h1>
-  <form id="traverseTable" action="<?=base_url()?>traverse/calculate" method="post">
+<h3><?php echo $title; ?></h3>
+  <form class="form-inline" action="<?=base_url()?>traverse/calculate" id="traverseTable" method="post">
     <input type="hidden" name="num_points" value="<?php echo $numPoints; ?>">
     <input type="hidden" name="traverse_type" value="<?php echo $traverseType;?>">
-    <table cellspacing="1" cellpadding="0" border="0" width="100%" id="traverse-table">
-        <tr>
-          <th>Nokta Adı</th>
-          <th>Poligon Açısı<br/>(grad)</th>
-          <th>Açıklık Açısı<br/>(grad)</th>
-          <th>Kenar Uzunluğu<br/>(metre)</th>
-          <th>Delta X</th>
-          <th>Delta Y</th>
-          <th>Y<br/>(metre)</th>
-          <th>X<br/>(metre)</th>
-        </tr>
+    <table class="table table-striped">
+        <thead>
+	        <tr>
+	          <th>Nokta Adı</th>
+	          <th>Poligon Açısı<br/>(grad)</th>
+	          <th>Açıklık Açısı<br/>(grad)</th>
+	          <th>Kenar Uzunluğu<br/>(metre)</th>
+	          <th>Delta X</th>
+	          <th>Delta Y</th>
+	          <th>Y<br/>(metre)</th>
+	          <th>X<br/>(metre)</th>
+	        </tr>
+        </thead>

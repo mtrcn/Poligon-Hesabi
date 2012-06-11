@@ -167,20 +167,20 @@ class TraverseModel extends Model {
 		if ($result['error_code']==0)
 		{
 			#debug print_r($result);
-			$maxFb=1.50*sqrt($data['numPoints'])/100;
-			$maxFq=0.05+0.15*sqrt(array_sum($data['distance'])/1000);
-			$maxFl=0.05+0.04*sqrt($data['numPoints']-1);
-			$S=sqrt(pow(array_sum($result['dy']),2)+pow(array_sum($result['dx']),2));
-			$fq=0; //Kapalı poligonda her zaman sıfır
-			$fl=1/$S*(pow(array_sum($result['dy']),2)+pow(array_sum($result['dx']),2));
+			$data['maxFb']=1.50*sqrt($data['numPoints'])/100;
+			$data['maxFq']=0.05+0.15*sqrt(array_sum($data['distance'])/1000);
+			$data['maxFl']=0.05+0.04*sqrt($data['numPoints']-1);
+			$data['S']=sqrt(pow(array_sum($result['dy']),2)+pow(array_sum($result['dx']),2));
+			$data['fq']=0; //Kapalı poligonda her zaman sıfır
+			$data['fl']=1/$data['S']*(pow(array_sum($result['dy']),2)+pow(array_sum($result['dx']),2));
 			//Açı Kapanma Hatası Kontrolü
-			if (abs($result['fb'])>$maxFb)
+			if (abs($result['fb'])>$data['maxFb'])
 			{
 				$data['errorMessage']="Açı kapanma hatası oluştu!";
 				return array_merge($data,$result);
 			}
 			//Koordinat Kapanma Hatası Kontrolü
-			if (abs($fq)>$maxFq || abs($fl)>$maxFl)
+			if (abs($data['fq'])>$data['maxFq'] || abs($data['fl'])>$data['maxFl'])
 			{
 				$data['errorMessage']="Koordinat kapanma hatası oluştu!";
 				return array_merge($data,$result);
@@ -225,21 +225,21 @@ class TraverseModel extends Model {
 		if ($result['error_code']==0)
 		{
 			#debug print_r($result);
-			$result['maxFb']=1.50*sqrt($data['numPoints'])/100;
+			$data['maxFb']=1.50*sqrt($data['numPoints'])/100;
 			//Koordinat kapanma hatası kontrolü
-			$result['maxFq']=0.05+0.15*sqrt(array_sum($data['distance'])/1000);
-			$result['maxFl']=0.05+0.04*sqrt($data['numPoints']-1);
-			$result['S']=sqrt(pow(array_sum($result['dy']),2)+pow(array_sum($result['dx']),2));
-			$result['fq']=1/$result['S']*(array_sum($result['dx'])*$result['fy']+array_sum($result['dx'])*$result['fx']);
-			$result['fl']=1/$result['S']*(array_sum($result['dy'])*$result['fy']+array_sum($result['dx'])*$result['fx']);
+			$data['maxFq']=0.05+0.15*sqrt(array_sum($data['distance'])/1000);
+			$data['maxFl']=0.05+0.04*sqrt($data['numPoints']-1);
+			$data['S']=sqrt(pow(array_sum($result['dy']),2)+pow(array_sum($result['dx']),2));
+			$data['fq']=1/$data['S']*(array_sum($result['dx'])*$result['fy']+array_sum($result['dx'])*$result['fx']);
+			$data['fl']=1/$data['S']*(array_sum($result['dy'])*$result['fy']+array_sum($result['dx'])*$result['fx']);
 			//Açı Kapanma Hatası Kontrolü
-			if (abs($result['fb'])>$maxFb)
+			if (abs($result['fb'])>$data['maxFb'])
 			{
 				$data['errorMessage']="Açı kapanma hatası oluştu!";
 				return array_merge($data,$result);
 			}
 			//Koordinat Kapanma Hatası Kontrolü
-			if (abs($fq)>$maxFq || abs($fl)>$maxFl)
+			if (abs($data['fq'])>$data['maxFq'] || abs($data['fl'])>$data['maxFl'])
 			{
 				$data['errorMessage']="Koordinat kapanma hatası oluştu!";
 				return array_merge($data,$result);

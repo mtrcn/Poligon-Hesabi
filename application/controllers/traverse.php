@@ -90,7 +90,7 @@ class Traverse extends Controller {
 		$tag = trim($this->input->post('tag',TRUE));
 		if (empty($tag))
 		{
-			echo '<div id="warning">Lütfen etiket alanını boş bırakmayın.</div>';
+			echo '<div class="alert alert-error">Lütfen etiket alanını boş bırakmayın.</div>';
 			exit();
 		}
 		$data=$this->TraverseModel->getData();
@@ -99,7 +99,7 @@ class Traverse extends Controller {
 			$isExist = $this->TraverseModel->isExist($tag);
 			if ($isExist)
 			{
-				echo '<div id="warning">Bu etiketle başka bir proje kaydetmişsiniz. Lütfen farklı bir etiket kullanın.</div>';
+				echo '<div class="alert alert-error">Bu etiketle başka bir proje kaydetmişsiniz. Lütfen farklı bir etiket kullanın.</div>';
 			}else
 			{
 				$saveData=array(
@@ -119,11 +119,11 @@ class Traverse extends Controller {
 					$saveData['azimuth'] = serialize($data['azimuth']);
 				}
 				$this->TraverseModel->save($saveData);
-				echo '<div id="success">Projeniz başarıyla kaydedildi.</div>';
+				echo '<div class="alert alert-success">Projeniz başarıyla kaydedildi.</div>';
 			}
 		}else
 		{
-			echo '<div id="warning">Tablodaki tüm alanları doldurmadan projenizi kaydedemezsiniz.</div>';
+			echo '<div class="alert">Tablodaki tüm alanları doldurmadan projenizi kaydedemezsiniz.</div>';
 		}
 	}
 
@@ -174,8 +174,9 @@ class Traverse extends Controller {
 	* @return String
 	*/
 	function _prepareRegulation($data){
-		$regulation  = '<fieldset><legend><b>Hesap Kontrolü</b></legend>';
-		$regulation .= '<table cellspacing="10" width="100%"><tr><td valign="top" width="40%" class="regulation">';
+		$regulation  = '<h4>Hesap Kontrolü</h4>';
+		$regulation .= '<div class="row">';
+		$regulation .= '<div class="span4">';
 		if ($data['traverseType']=='ring')
 		{
 			$regulation .= '<img src="'.base_url().'images/regulation/f_b.png" align="absbottom"> = '.sprintf("%.4f",$data['fb']).'<br>';
@@ -190,14 +191,14 @@ class Traverse extends Controller {
 			$regulation .= '<img src="'.base_url().'images/regulation/fy_2.png" align="absbottom"> = '.sprintf("%.4f",$data['fy']).'<br>';
 		}
 		$regulation .= '<img src="'.base_url().'images/regulation/S.png" align="absbottom"> = '.sprintf("%.4f",$data['S']).'<br>';
-		$regulation .= '</td><td class="yonetmelik" width="40%">';
+		$regulation .= '</div><div class="span4">';
 		$regulation .= '<img src="'.base_url().'images/regulation/f_q.png" align="absbottom"> = '.sprintf("%.4f",$data['fq']).'<br>';
 		$regulation .= '<img src="'.base_url().'images/regulation/f_l.png" align="absbottom"> = '.sprintf("%.4f",$data['fl']).'<br>';
 		$regulation .= '<img src="'.base_url().'images/regulation/FQ.png" align="absbottom"> = '.sprintf("%.4f",$data['maxFq']).'<br>';
 		$regulation .= '<img src="'.base_url().'images/regulation/FL.png" align="absbottom"> = '.sprintf("%.4f",$data['maxFl']).'<br>';
-		$regulation .= '</td><td align="center">';
+		$regulation .= '</div><div class="span4">';
 		$regulation .= '<img src="'.base_url().'images/regulation/kosul.png" align="absbottom"><br><br>(BÖHHBÜY 2005)';
-		$regulation .= '<td></tr></table></fieldset>';
+		$regulation .= '</div></div>';
 		return $regulation;
 	}
 }
