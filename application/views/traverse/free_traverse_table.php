@@ -2,7 +2,7 @@
       <td><input type="text" name="id0" class="input-mini" value="<?php echo isset($id[0])?$id[0]:null; ?>"></td>
       <td></td> <td></td> <td></td> <td></td> <td></td>
       <td><input class="input-small" type="text" name="Y0"  value="<?php echo isset($Y[0])?$Y[0]:null; ?>" onkeyup="comma_block(this)"></td>
-      <td><input class="input-small" type="text" name="X0"  value="<?php echo isset($X[0])?$Y[0]:null; ?>" onkeyup="comma_block(this)"></td>
+      <td><input class="input-small" type="text" name="X0"  value="<?php echo isset($X[0])?$X[0]:null; ?>" onkeyup="comma_block(this)"></td>
     </tr>
     <tr align="center">
       <td></td> <td></td>
